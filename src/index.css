@@ -1,4 +1,50 @@
 @import "tailwindcss";
 
 @theme {
+  /* Colors - Statuses */
+  --color-task-in-progress-bg: #f5d565;
+  --color-task-in-progress-icon: #e9a23b;
+
+  --color-task-completed-bg: #a0ecb1;
+  --color-task-completed-icon: #32d657;
+
+  --color-task-wont-do-bg: #f7d4d3;
+  --color-task-wont-do-icon: #dd524c;
+
+  --color-task-todo-bg: #e3e8ef;
+
+  /* Layout & Base Colors */
+  --color-main-bg: #f8fafc;
+  --color-main-text: #0d172a;
+  --color-overlay-bg: #00000033;
+
+  /* Buttons & Actions */
+  --color-btn-save: #3662e3;
+  --color-btn-delete: #97a3b6;
+  --color-btn-add: #f5e8d5;
+
+  /* Typography */
+  --font-outfit: "Outfit", sans-serif;
+
+  /* spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-no: 1rem;
+  --spacing-lg: 1.5rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+@utility input-style {
+  @apply border-btn-delete text-main-text focus:outline-btn-save p-xs w-full rounded-md border;
+}
+
+@utility flex-col-style {
+  @apply flex flex-col;
+}
+
+@utility label-style {
+  @apply text-xs font-medium;
 }
