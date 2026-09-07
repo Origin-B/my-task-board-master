@@ -1,9 +1,7 @@
-<!-- Please update value in the {}  -->
-
 <h1 align="center">My Task Board | devChallenges</h1>
 
 <div align="center">
-   Solution for a challenge <a href="https://devchallenges.io/challenge/my-task-board-app" target="_blank">My Task Board
+  Solution for a challenge <a href="https://devchallenges.io/challenge/my-task-board-app" target="_blank">My Task Board
 </a> from <a href="http://devchallenges.io" target="_blank">devChallenges.io</a>.
 </div>
 
@@ -13,7 +11,7 @@
       Demo
     </a>
     <span> | </span>
-    <a href="{https://your-url-to-the-solution}">
+    <a href="https://github.com/Origin-B/my-task-board-master">
       Solution
     </a>
     <span> | </span>
@@ -23,8 +21,6 @@
   </h3>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-
 ## Table of Contents
 
 - [Overview](#overview)
@@ -32,10 +28,7 @@
   - [Useful resources](#useful-resources)
 - [Built with](#built-with)
 - [Features](#features)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
-
-<!-- OVERVIEW -->
+- [Author](#author)
 
 ## Overview
 
@@ -43,43 +36,30 @@
 ![design-1040](/design/design-1040.png)
 ![design-1280](/design/design-1280.png)
 
-<!--
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
-
-- What have you learned/improved?
-- Your wisdom? :)
--->
+A responsive Task Board application that allows users to manage, add, edit, and filter tasks seamlessly. Built with modern web development standards to ensure maximum accessibility and performance across screen sizes.
 
 ### What I learned
 
-<!-- Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge. -->
+Working on this project helped reinforce key React patterns and type safety concepts:
 
-### Useful resources
-
-<!--
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
--->
+- Managing complex state for task creation, deletion, and status updates.
+- Ensuring robust type safety using TypeScript interfaces for task data structures.
+- Utilizing Tailwind CSS for custom dynamic UI design and responsive layouts.
 
 ### Built with
 
-<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
-
 - Semantic HTML5 markup
-- Flexbox
-- [React](https://reactjs.org)
-- [Vue.js](https://vuejs.org)
-- [Tailwind](https://tailwindcss.com)
+- CSS Flexbox & Grid
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ## Features
 
-<!-- List the features of your application or follow the template. Don't share the figma file here :) -->
-
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges-dashboard) challenge.
-
-## Acknowledgements
-
-<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For exmpale -->
+- **Task Management**: Create, edit, and delete tasks dynamically.
+- **Status Filtering**: Filter tasks by their current status (e.g., In Progress, Completed).
+- **Responsive Design**: Clean UI layout optimized for mobile, tablet, and desktop screens.
+- **Persistent State**: Keeps track of user input and actions within the application.
 
 ## Author
 
