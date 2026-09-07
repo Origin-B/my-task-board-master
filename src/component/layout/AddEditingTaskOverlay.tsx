@@ -5,7 +5,7 @@ import { icons, statusArr } from "../../data-type";
 import StatusContainer from "../overlay/StatusContainer";
 
 // hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAddEditingTask } from "../../context/AddEditingTaskProvider";
 
 export default function AddEditingTaskOverlay() {
@@ -17,6 +17,8 @@ export default function AddEditingTaskOverlay() {
   function updateAddEditingTask(name: string, value: string) {
     setAddEditingT({ ...addEditingT, [name]: value });
   }
+
+  useEffect(() => setAddEditingT(addEditingTask), [addEditingTask]);
 
   return (
     <>

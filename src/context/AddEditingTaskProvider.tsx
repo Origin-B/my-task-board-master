@@ -79,11 +79,10 @@ export default function AddEditingTaskProvider({
   }, [alarm, overlayActive, addEditingTask]);
 
   function handelAddEditingTask(name: "add" | "editing", id: string) {
-    setAddEditingTask(
-      name === "add"
-        ? defaultTask
-        : tasks.find((t) => t.id === id) || defaultTask,
-    );
+    setAddEditingTask(() => {
+      const target = tasks.find((t) => t.id === id);
+      return target && name === "editing" ? target : defaultTask;
+    });
 
     setOverlayActive(true);
   }
@@ -110,14 +109,13 @@ export default function AddEditingTaskProvider({
       });
     }
 
-    if (id && name === "delete") {
+    if (name === "delete") {
       setTasks(tasks.filter((t) => t.id !== id));
       setALarm(defaultAlarm);
       setOverlayActive(false);
     }
 
     if (name === "close") {
-      if (id !== "") setAddEditingTask(defaultTask);
       setALarm(defaultAlarm);
       setOverlayActive(false);
     }

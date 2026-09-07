@@ -29,7 +29,7 @@ export default function TaskSection() {
       <button
         className="bg-btn-add gap-no p-no flex items-center rounded-xl font-semibold"
         type="button"
-        onClick={() => handelAddEditingTask("add", "")}
+        onClick={() => handelAddEditingTask("add", "new-task")}
         aria-label="click to add new task"
       >
         <ProgressIcon

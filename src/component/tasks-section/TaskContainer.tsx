@@ -42,7 +42,7 @@ export default function TaskContainer({ task }: { task: task }) {
     <button
       type="button"
       aria-label="click to edit task"
-      className={`${addEditingTask.id === id && "outline-btn-save outline-2"} border-main-bg border-2 ${bg} gap-no p-no flex items-start rounded-xl`}
+      className={`${addEditingTask.id === id && "outline-btn-save outline-2"} border-main-bg border-2 text-left ${bg} gap-no p-no flex items-start rounded-xl`}
       onClick={() => handelAddEditingTask("editing", id)}
     >
       <span className="bg-main-bg rounded-lg p-2">{icon}</span>
