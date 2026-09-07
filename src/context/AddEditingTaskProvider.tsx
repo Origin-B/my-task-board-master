@@ -13,7 +13,16 @@ import { type addEditingTask } from "../data-type";
 // id
 import { nanoid } from "nanoid";
 
-const defaultTask = {
+const getStorageItem = <T,>(key: string, defaultValue: T): T => {
+  try {
+    const saved = localStorage.getItem(key);
+    return saved ? (JSON.parse(saved) as T) : defaultValue;
+  } catch {
+    return defaultValue;
+  }
+};
+
+const defaultTask: addEditingTask = {
   id: "",
   description: "",
   icon: "",
@@ -46,20 +55,20 @@ export default function AddEditingTaskProvider({
 }) {
   const { tasks, setTasks } = useTasks();
 
-  const [addEditingTask, setAddEditingTask] = useState(() => {
-    const save = localStorage.getItem("addEditingTask");
-    return save ? JSON.parse(save) : defaultTask;
-  });
+  const [addEditingTask, setAddEditingTask] = useState(
+    getStorageItem<addEditingTask>("addEditingTask", defaultTask),
+  );
 
-  const [alarm, setALaram] = useState(() => {
-    const save = localStorage.getItem("alarm");
-    return save ? JSON.parse(save) : defaultTask;
-  });
+  const [alarm, setALarm] = useState(
+    getStorageItem<{
+      iconAlarm: boolean;
+      taskHeadingAlarm: boolean;
+    }>("alarm", defaultAlarm),
+  );
 
-  const [overlayActive, setOverlayActive] = useState<boolean>(() => {
-    const save = localStorage.getItem("overlayActive");
-    return save ? JSON.parse(save) : defaultTask;
-  });
+  const [overlayActive, setOverlayActive] = useState<boolean>(
+    getStorageItem<boolean>("overlayActive", false),
+  );
 
   useEffect(() => {
     localStorage.setItem("addEditingTask", JSON.stringify(addEditingTask));
@@ -95,7 +104,7 @@ export default function AddEditingTaskProvider({
         setOverlayActive(false);
       }
 
-      setALaram({
+      setALarm({
         iconAlarm: addEditingTask.icon === "",
         taskHeadingAlarm: addEditingTask.title === "",
       });
@@ -103,13 +112,13 @@ export default function AddEditingTaskProvider({
 
     if (id && name === "delete") {
       setTasks(tasks.filter((t) => t.id !== id));
-      setALaram(defaultAlarm);
+      setALarm(defaultAlarm);
       setOverlayActive(false);
     }
 
     if (name === "close") {
       if (id !== "") setAddEditingTask(defaultTask);
-      setALaram(defaultAlarm);
+      setALarm(defaultAlarm);
       setOverlayActive(false);
     }
   }

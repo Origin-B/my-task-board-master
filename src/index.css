@@ -38,7 +38,7 @@ button {
 }
 
 @utility input-style {
-  @apply border-btn-delete text-main-text focus:outline-btn-save p-xs w-full rounded-md border;
+  @apply p-xs border-btn-delete text-main-text focus:outline-btn-save w-full rounded-md border;
 }
 
 @utility flex-col-style {

@@ -13,8 +13,8 @@ export default function TaskContainer({ task }: { task: task }) {
 
   const { addEditingTask, handelAddEditingTask } = useAddEditingTask();
 
-  const progressIcon = useMemo(() => {
-    return status === "completed"
+  const progressIcon =
+    status === "completed"
       ? {
           path: "/Done_round_duotone.svg",
           alt: "Done round",
@@ -31,24 +31,21 @@ export default function TaskContainer({ task }: { task: task }) {
             alt: "close ring duotone",
             style: "bg-task-wont-do-icon",
           };
-  }, [status]);
 
-  const bg = useMemo(() => {
-    if (status !== "")
-      return status === "completed"
+  const bg =
+    status === ""
+      ? "bg-task-todo-bg"
+      : status === "completed"
         ? "bg-task-completed-bg"
         : status === "in-progress"
           ? "bg-task-in-progress-bg"
           : "bg-task-wont-do-bg";
 
-    return "bg-task-todo-bg";
-  }, [status]);
-
   return (
-    <div
-      role="button"
+    <button
+      type="button"
       aria-label="click to edit task"
-      className={`${addEditingTask.id === id && "outline-btn-save outline-2"} border-main-bg border-2 ${bg} gap-no p-no flex cursor-pointer items-start rounded-xl`}
+      className={`${addEditingTask.id === id && "outline-btn-save outline-2"} border-main-bg border-2 ${bg} gap-no p-no flex items-start rounded-xl`}
       onClick={() => handelAddEditingTask("editing", id)}
     >
       <span className="bg-main-bg rounded-lg p-2">{icon}</span>
@@ -59,7 +56,7 @@ export default function TaskContainer({ task }: { task: task }) {
       </article>
 
       {status !== "" && <ProgressIcon icon={progressIcon} />}
-    </div>
+    </button>
   );
 }
 

@@ -2,10 +2,10 @@
 import { icons, statusArr } from "../../data-type";
 
 // component
-import StatueContainer from "../overlay/StatueContainer";
+import StatusContainer from "../overlay/StatusContainer";
 
 // hooks
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAddEditingTask } from "../../context/AddEditingTaskProvider";
 
 export default function AddEditingTaskOverlay() {
@@ -13,8 +13,6 @@ export default function AddEditingTaskOverlay() {
     useAddEditingTask();
 
   const [addEditingT, setAddEditingT] = useState(addEditingTask);
-
-  useEffect(() => setAddEditingT(addEditingTask), [addEditingTask]);
 
   function updateAddEditingTask(name: string, value: string) {
     setAddEditingT({ ...addEditingT, [name]: value });
@@ -117,7 +115,7 @@ export default function AddEditingTaskOverlay() {
 
               <div className="gap-xs flex flex-wrap">
                 {statusArr.map((status) => (
-                  <StatueContainer
+                  <StatusContainer
                     key={status.id}
                     status={status}
                     updateAddEditingTask={updateAddEditingTask}

@@ -1,13 +1,10 @@
-// hooks
-import { useMemo } from "react";
-
 // component
 import ProgressIcon from "../shared/ProgressIcon";
 
 // type
 import type { statusType } from "../../data-type";
 
-export default function StatueContainer({
+export default function StatusContainer({
   status,
   updateAddEditingTask,
   taskStatus,
@@ -18,20 +15,19 @@ export default function StatueContainer({
 }) {
   const { path, id, title } = status;
 
-  const style = useMemo(() => {
-    return id === "completed"
+  const style =
+    id === "completed"
       ? "bg-task-completed-icon"
       : id === "in-progress"
         ? "bg-task-in-progress-icon"
         : "bg-task-wont-do-icon";
-  }, [id]);
 
   return (
     <button
       className={`${id === taskStatus ? "border-btn-save" : "border-btn-delete"} text-main-text gap-xs flex w-[calc(50%-4px)] items-center rounded-xl border p-1 transition-colors`}
       id={id}
       type="button"
-      aria-label={`click to chose ${id} statue`}
+      aria-label={`click to chose ${id} status`}
       onClick={() => updateAddEditingTask("status", id)}
     >
       <ProgressIcon icon={{ path, alt: id, style }} />
