@@ -44,3 +44,7 @@
 @utility label-style {
   @apply text-xs font-medium;
 }
+
+button {
+  cursor: pointer;
+}
