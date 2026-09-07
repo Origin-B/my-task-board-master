@@ -1,6 +1,3 @@
-// hooks
-import { useMemo } from "react";
-
 // type
 import type { task } from "../../data-type";
 
